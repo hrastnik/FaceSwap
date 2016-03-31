@@ -22,8 +22,8 @@ The faces are then color corrected using histogram matching and in the end the e
 # Result
 Before...
 
-[![Before](./images/before.jpg)]](https://youtu.be/32i1ca8pcTg)
+[![Before](./images/before.jpg)](https://youtu.be/32i1ca8pcTg)
 
 After...
 
-[![After](./images/after.jpg)]](https://youtu.be/32i1ca8pcTg)
+[![After](./images/after.jpg)](https://youtu.be/32i1ca8pcTg)
