@@ -18,7 +18,7 @@ FaceDetectorAndTracker::FaceDetectorAndTracker(const std::string cascadeFilePath
     }
 
     m_faceCascade = std::make_unique<cv::CascadeClassifier>(cascadeFilePath);
-    if (m_camera->isOpened() == false)
+    if (m_faceCascade->empty())
     {
         std::cerr << "Error loading cascade file " << cascadeFilePath << std::endl << 
             "Make sure the file exists" << std::endl;
