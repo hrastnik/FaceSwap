@@ -1,4 +1,6 @@
+#ifdef _WIN32
 #include <dlib/all/source.cpp>
+#endif
 
 #include <opencv2/highgui.hpp>
 

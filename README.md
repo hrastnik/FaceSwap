@@ -2,11 +2,7 @@
 
 # How to run?
 
-OpenCV and dlib are required. If you're on Linux you should remove the first line from `main.cpp`
-
-    #include <dlib/all/source.cpp>
-    
-After that it should compile and run.
+OpenCV and dlib are required.
 
 Copy haarcascade_frontalface_default.xml from OpenCV sources/data/haarcascades folder.
 Download shape_predictor_68_face_landmarks.dat from http://sourceforge.net/projects/dclib/files/dlib/v18.10/shape_predictor_68_face_landmarks.dat.bz2 and place in correct folder. 
