@@ -139,6 +139,13 @@ void FaceDetectorAndTracker::track()
             {
                 m_tmStartTime[i] = cv::getCPUTickCount();
             }
+            
+            if (m_faceTemplates[i].cols <= 1 || m_faceTemplates[i].rows <= 1)
+            {
+                m_facesRects.clear();
+                m_tracking = false;
+                return;
+            }
 
             // Template matching
             cv::matchTemplate(faceRoi, m_faceTemplates[i], m_matchingResult, CV_TM_SQDIFF_NORMED);
