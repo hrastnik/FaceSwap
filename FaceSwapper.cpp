@@ -258,13 +258,13 @@ void FaceSwapper::specifiyHistogram(const cv::Mat source_image, cv::Mat target_i
     // Normalize CDF
     for (size_t i = 0; i < 256; i++)
     {
-        source_histogram[0][i] = (source_hist_int[0][i] ? (float) source_hist_int[0][i] / source_hist_int[0][255] : 0);
-        source_histogram[1][i] = (source_hist_int[1][i] ? (float)source_hist_int[1][i] / source_hist_int[1][255] : 0);
-        source_histogram[2][i] = (source_hist_int[2][i] ? (float)source_hist_int[2][i] / source_hist_int[2][255] : 0);
+        source_histogram[0][i] = (source_hist_int[0][255] ? (float)source_hist_int[0][i] / source_hist_int[0][255] : 0);
+        source_histogram[1][i] = (source_hist_int[1][255] ? (float)source_hist_int[1][i] / source_hist_int[1][255] : 0);
+        source_histogram[2][i] = (source_hist_int[2][255] ? (float)source_hist_int[2][i] / source_hist_int[2][255] : 0);
 
-        target_histogram[0][i] = (target_hist_int[0][i] ? (float)target_hist_int[0][i] / target_hist_int[0][255] : 0);
-        target_histogram[1][i] = (target_hist_int[1][i] ? (float)target_hist_int[1][i] / target_hist_int[1][255] : 0);
-        target_histogram[2][i] = (target_hist_int[2][i] ? (float)target_hist_int[2][i] / target_hist_int[2][255] : 0);
+        target_histogram[0][i] = (target_hist_int[0][255] ? (float)target_hist_int[0][i] / target_hist_int[0][255] : 0);
+        target_histogram[1][i] = (target_hist_int[1][255] ? (float)target_hist_int[1][i] / target_hist_int[1][255] : 0);
+        target_histogram[2][i] = (target_hist_int[2][255] ? (float)target_hist_int[2][i] / target_hist_int[2][255] : 0);
     }
 
     // Create lookup table
