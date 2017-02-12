@@ -1,7 +1,3 @@
-#ifdef _WIN32
-#include <dlib/all/source.cpp>
-#endif
-
 #include <opencv2/highgui/highgui.hpp>
 
 #include "FaceDetectorAndTracker.h"
