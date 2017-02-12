@@ -45,8 +45,10 @@ void FaceSwapper::swapFaces(cv::Mat &frame, cv::Rect &rect_ann, cv::Rect &rect_b
 
     colorCorrectFaces();
 
-    featherMask(refined_masks(big_rect_ann));
-    featherMask(refined_masks(big_rect_bob));
+    auto refined_mask_ann = refined_masks(big_rect_ann);
+    auto refined_mask_bob = refined_masks(big_rect_bob);
+    featherMask(refined_mask_ann);
+    featherMask(refined_mask_bob);
 
     pasteFacesOnFrame();
 }

@@ -1,19 +1,18 @@
 #pragma once
 
-#include <opencv2\imgproc.hpp>
-#include <opencv2\objdetect.hpp>
-#include <opencv2\highgui.hpp>
-#include <opencv2\video.hpp>
-#include <opencv2\calib3d.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/video/video.hpp>
+#include <opencv2/calib3d/calib3d.hpp>
 
 #include <iostream>
 
 #include <dlib/opencv.h>
-#include <opencv2/highgui/highgui.hpp>
 #include <dlib/image_processing/frontal_face_detector.h>
-#include <dlib/image_processing/render_face_detections.h>
+//#include <dlib/image_processing/render_face_detections.h>
 #include <dlib/image_processing.h>
-#include <dlib/gui_widgets.h>
+//#include <dlib/gui_widgets.h>
 
 class FaceSwapper
 {

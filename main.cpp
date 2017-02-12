@@ -2,7 +2,7 @@
 #include <dlib/all/source.cpp>
 #endif
 
-#include <opencv2/highgui.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 #include "FaceDetectorAndTracker.h"
 #include "FaceSwapper.h"
@@ -26,7 +26,7 @@ int main()
             cv::Mat frame;
             detector >> frame;
 
-            std::vector<cv::Rect> &cv_faces = detector.faces();
+            auto cv_faces = detector.faces();
             if (cv_faces.size() == num_faces)
             {
                 face_swapper.swapFaces(frame, cv_faces[0], cv_faces[1]);

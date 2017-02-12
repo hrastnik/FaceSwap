@@ -1,8 +1,8 @@
 #include "FaceDetectorAndTracker.h"
 
-#include <opencv2/core.hpp>
-#include <opencv2/video.hpp>
-#include <opencv2/imgproc.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/video/video.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/objdetect/objdetect.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
@@ -25,8 +25,13 @@ FaceDetectorAndTracker::FaceDetectorAndTracker(const std::string cascadeFilePath
         exit(-1);
     }
 
+#if CV_VERSION_MAJOR < 3
     m_originalFrameSize.width = (int)m_camera->get(cv::CAP_PROP_FRAME_WIDTH);
     m_originalFrameSize.height = (int)m_camera->get(cv::CAP_PROP_FRAME_HEIGHT);
+#else
+    m_originalFrameSize.width = (int)m_camera->get(CV_CAP_PROP_FRAME_WIDTH);
+    m_originalFrameSize.height = (int)m_camera->get(CV_CAP_PROP_FRAME_HEIGHT);
+#endif
 
     m_downscaledFrameSize.width = m_downscaledFrameWidth;
     m_downscaledFrameSize.height = (m_downscaledFrameSize.width * m_originalFrameSize.height) / m_originalFrameSize.width;
