@@ -54,6 +54,20 @@ Download [OpenCV](http://opencv.org/downloads.html) and [dlib](http://dlib.net/)
 
 After that FaceSwap should work. 
 
+# Building on GNU/Linux
+
+If you want to run this on Ubuntu 16.04 run this set of commands:
+
+    sudo apt install libopencv-dev liblapack-dev libdlib-dev
+    wget http://sourceforge.net/projects/dclib/files/dlib/v18.10/shape_predictor_68_face_landmarks.dat.bz2
+    bunzip2 *.bz2
+    ln -s /usr/share/opencv/haarcascades/haarcascade_frontalface_default.xml .
+
+    g++ -std=c++1y *.cpp $(pkg-config --libs opencv lapack) -ldlib 
+    ./a.out
+    
+Special thanks to https://github.com/nqzero for providing the build commands.
+
 # How does it work?
 
 The algorithm searches until it finds two faces in the frame. Then it estimates facial landmarks using dlib face landmarks. Facial landmarks are used to "cut" the faces out of the frame and to estimate the transformation matrix used to move one face over the other.
