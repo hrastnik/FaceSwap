@@ -68,6 +68,26 @@ If you want to run this on Ubuntu 16.04 run this set of commands:
     
 Special thanks to https://github.com/nqzero for providing the build commands.
 
+# Building on MacOS
+
+Special thanks to https://github.com/shaunharker for providing the build commands.
+
+    brew install lapack
+    brew install openblas
+    brew install opencv
+    brew install dlib --with-openblas
+    git clone https://github.com/hrastnik/FaceSwap.git
+    cd FaceSwap
+    wget http://sourceforge.net/projects/dclib/files/dlib/v18.10/shape_predictor_68_face_landmarks.dat.bz2
+    bunzip2 *.bz2
+    ln -s /usr/local/share/opencv/haarcascades/haarcascade_frontalface_default.xml .
+    export PKG_CONFIG_PATH=/usr/local/opt/lapack/lib/pkgconfig:/usr/local/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH
+    g++ -std=c++1y *.cpp $(pkg-config --libs opencv lapack openblas) -ldlib
+    mkdir bin
+    mv a.out bin
+    cd bin
+    ./a.out
+
 # How does it work?
 
 The algorithm searches until it finds two faces in the frame. Then it estimates facial landmarks using dlib face landmarks. Facial landmarks are used to "cut" the faces out of the frame and to estimate the transformation matrix used to move one face over the other.
